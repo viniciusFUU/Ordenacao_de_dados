@@ -28,6 +28,7 @@ class Pilha_estatica:
         for i in range(len(lista)):
             if posicao == i:
                 lista.remove(lista[i])
+                Pilha_estatica.contador-=1
 
         Pilha_estatica.lista = lista
 
@@ -62,6 +63,38 @@ class Pilha_estatica:
         for i in range(len(lista)):
             if posicao == i:
                 return lista[i]
+
+    def isEmpty():
+        lista = Pilha_estatica.lista
+
+        if len(lista) == 0:
+            return True
+        
+        return False
+
+    def clear():
+        lista = Pilha_estatica.lista
+
+        lista = []
+
+        Pilha_estatica.lista = lista
+
+    def peek():
+        lista = Pilha_estatica.lista
+
+        try:
+            return lista[Pilha_estatica.contador-1]
+        except:
+            print("Lista vazia")
+
+    def reverse():
+        lista = Pilha_estatica.lista
+        listaReversa = []
+
+        for i in range(len(lista) - 1, -1, -1):
+            listaReversa.append(lista[i])
+
+        Pilha_estatica.lista = listaReversa
 
     def getContador():
         return Pilha_estatica.contador
