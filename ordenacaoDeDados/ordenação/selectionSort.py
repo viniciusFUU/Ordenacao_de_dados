@@ -1,5 +1,3 @@
-lista = [8, 5, 1, 3, 2, 7, 4, 9, 6]
-
 def selectionSort(vetor):
     listaOrdenada = []
     tamanhoVetor = len(vetor)
@@ -12,9 +10,10 @@ def selectionSort(vetor):
                 menorElemento=vetor[j]
 
         listaOrdenada.append(menorElemento)
-        lista.remove(menorElemento)
+        vetor.remove(menorElemento)
         tamanhoVetor-=1
 
     return listaOrdenada
 
+lista = [8, 5, 1, 3, 2, 7, 4, 9, 6, 17, 11, 19, 15]
 print(selectionSort(lista))
