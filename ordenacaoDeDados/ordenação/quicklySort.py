@@ -19,4 +19,5 @@ def quicklySort(vetor):
     return menores + [pivo] + maiores
 
 lista = [5, 4, 7, 9, 6, 3, 1, 2, 8]
+
 print(quicklySort(lista))

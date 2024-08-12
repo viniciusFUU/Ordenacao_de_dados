@@ -2,13 +2,11 @@ def shellSort(nums):
     contador = 0
 
     while contador < len(nums):
-        limite = 0
-        for i in range(len(nums)-1, limite, -1):
+        for i in range(len(nums)-1, 0, -1):
             valorAtual=nums[i]
             valorComparado=nums[i-1]
             if valorAtual < valorComparado:
                 nums[i], nums[i-1] = nums[i-1], nums[i]
-                limite+=1
         
         contador+=1
     
