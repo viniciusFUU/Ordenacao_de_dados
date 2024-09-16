@@ -1,19 +1,16 @@
 def selectionSort(vetor):
-    listaOrdenada = []
-    tamanhoVetor = len(vetor)
+    posicao = 1
 
-    for i in range(0, tamanhoVetor):
-        menorElemento = vetor[0]
+    for i in range(len(vetor)):
+        elementoX = vetor[i]
 
-        for j in range(tamanhoVetor):
-            if vetor[j] < menorElemento:
-                menorElemento=vetor[j]
+        for j in range(posicao, len(vetor)):
+            if elementoX > vetor[j]:
+                elementoX = vetor[j]
+                vetor[i], vetor[j] = vetor[j], vetor[i]
+        posicao+=1
 
-        listaOrdenada.append(menorElemento)
-        vetor.remove(menorElemento)
-        tamanhoVetor-=1
-
-    return listaOrdenada
+    return vetor
 
 lista = [8, 5, 1, 3, 2, 7, 4, 9, 6, 17, 11, 19, 15]
 print(selectionSort(lista))

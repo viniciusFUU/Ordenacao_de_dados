@@ -8,6 +8,7 @@ def insertSort(vetor):
         vetor.remove(valorAtual)
 
         for j in range(i-1, -1, -1):
+            vetorJ = vetor[j]
             if vetor[j] > valorAtual:
                 posicaoParaInserir = j
         vetor.insert(posicaoParaInserir, valorAtual)

@@ -13,5 +13,5 @@ def shellSort(nums):
     return nums
 
 
-lista = [5, 4, 7, 9, 6, 3, 1, 2, 8]
+lista = [51, 46, 73, 90, 66, 38, 13, 22, 87]
 print(shellSort(lista))
