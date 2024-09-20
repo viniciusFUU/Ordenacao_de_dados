@@ -1,5 +1,6 @@
 def selectionSort(vetor):
     posicao = 1
+    menor_posicao = 0
 
     for i in range(len(vetor)):
         elementoX = vetor[i]
@@ -7,7 +8,11 @@ def selectionSort(vetor):
         for j in range(posicao, len(vetor)):
             if elementoX > vetor[j]:
                 elementoX = vetor[j]
-                vetor[i], vetor[j] = vetor[j], vetor[i]
+                menor_posicao = j
+
+        if vetor[i] > vetor[menor_posicao]:
+            vetor[i], vetor[menor_posicao] = vetor[menor_posicao], vetor[i]
+
         posicao+=1
 
     return vetor
