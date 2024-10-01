@@ -1,33 +1,45 @@
-def mergeSort(vetor):
-    if len(vetor) <=1:
-        return vetor
+def merge_sort(vetor, inicio, fim):
+    meio = (inicio + fim) // 2
+
+    if inicio >= fim:
+        return
     
-    meio = len(vetor)//2
+    merge_sort(vetor, inicio, meio)
+    merge_sort(vetor, meio+1, fim)
 
-    esquerda = vetor[:meio]
-    direita = vetor[meio:]
+    ordenacao(vetor, inicio, meio, fim)
 
-    lula = mergeSort(esquerda)
-    bolsonaro = mergeSort(direita)
+    return vetor
 
-    return ordenacao(lula, bolsonaro)
+def ordenacao(vetor, inicio, meio, fim):
+    esquerda = vetor[inicio:meio+1]
+    direita = vetor[meio+1:fim+1]
+    tamanho_esquerda = len(esquerda)
+    tamanho_direita = len(direita)
 
-def ordenacao(esquerda, direita):
-    lulonaro = []
+    posicao = inicio
     i = j = 0
 
-    while i < len(esquerda) and j < len(direita):
-        if esquerda[i] < direita[j]:
-            lulonaro.append(esquerda[i])
-            i+=1
-        else:
-            lulonaro.append(direita[j])
+    while i < tamanho_esquerda and j < tamanho_direita:
+        if esquerda[i] > direita[j]:
+            vetor[posicao] = direita[j]
             j+=1
+        else:
+            vetor[posicao] = esquerda[i]
+            i+=1
+        posicao+=1
+    
+    while i < tamanho_esquerda:
+        vetor[posicao] = esquerda[i]
+        i+=1
+        posicao+=1
 
-    lulonaro.extend(esquerda[i:])
-    lulonaro.extend(direita[j:])
+    while j < tamanho_direita:
+        vetor[posicao] = direita[j]
+        j+=1
+        posicao+=1
 
-    return lulonaro
-
-lista = [3, 7, 6, -10, 15, 23.5, 55, -13]
-print(mergeSort(lista))
+lista = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+inicio = 0
+fim = len(lista)-1
+print(merge_sort(lista, inicio, fim))
