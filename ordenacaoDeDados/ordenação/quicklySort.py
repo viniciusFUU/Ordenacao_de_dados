@@ -1,37 +1,28 @@
-def quickly_sort(vetor):
-    tamanho_lista = len(vetor)-1
-    if tamanho_lista < 1:
-        return vetor
+def quick_sort(vetor, inicio, fim):
+    if inicio < fim:
+        pivo = ordenar(vetor, inicio, fim)
+
+        quick_sort(vetor, inicio, pivo)
+        quick_sort(vetor, pivo+2, fim)
     
-    pivo = vetor[-1]
-    vetor_param = 0
-    vetor_param_novo = 0
+    return vetor
 
-    for i in range(tamanho_lista):
+def ordenar(vetor, inicio, fim):
+    pivo = vetor[fim]
+    nao_troca = inicio-1
+    troca = inicio
 
-        if pivo >= vetor[i]:
-            vetor_param_novo = i
+    for i in range(inicio, fim):
+        if vetor[i] < pivo:
+            troca = i
+            nao_troca+=1
+            vetor[nao_troca], vetor[troca] = vetor[troca], vetor[nao_troca]
 
-        if vetor[vetor_param] > vetor[vetor_param_novo]:
-            vetor[vetor_param_novo], vetor[vetor_param] = vetor[vetor_param], vetor[vetor_param_novo]
-            vetor_param+=1
-
-    if vetor[-1] < vetor[vetor_param-1]:
-        vetor[-1], vetor[vetor_param-1] = vetor[vetor_param-1], vetor[-1]
     
-    print("fim")
-    esquerda = separando_listas(vetor, 0, vetor_param-1)
-    direita = separando_listas(vetor, vetor_param, -1)
+    if pivo < vetor[nao_troca+1]:
+        vetor[fim], vetor[nao_troca+1] = vetor[nao_troca+1], vetor[fim]
 
-    quickly_sort(esquerda)
-    quickly_sort(direita)
+    return nao_troca
 
-    return esquerda + [pivo] + direita
-
-def separando_listas(vetor, inicio, fim):
-    vetor_adaptado = vetor[inicio:fim]
-
-    return vetor_adaptado
-
-lista = [10, 9, 5, 1, 4, 3, 28, 7, 6]
-print(quickly_sort(lista))
+lista = [1, 2, 3, 4, 5, 5, 5, 4, 3, 2, 1]
+print(quick_sort(lista, 0, len(lista) - 1))
