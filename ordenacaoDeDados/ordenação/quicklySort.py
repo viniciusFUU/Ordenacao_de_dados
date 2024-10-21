@@ -16,9 +16,7 @@ def ordenar(vetor, inicio, fim):
         if vetor[i] < pivo:
             troca = i
             nao_troca+=1
-            vetor[nao_troca], vetor[troca] = vetor[troca], vetor[nao_troca]
-
-    
+            vetor[nao_troca], vetor[troca] = vetor[troca], vetor[nao_troca]    
     
     vetor[fim], vetor[nao_troca+1] = vetor[nao_troca+1], vetor[fim]
 
