@@ -19,10 +19,10 @@ def ordenar(vetor, inicio, fim):
             vetor[nao_troca], vetor[troca] = vetor[troca], vetor[nao_troca]
 
     
-    if pivo < vetor[nao_troca+1]:
-        vetor[fim], vetor[nao_troca+1] = vetor[nao_troca+1], vetor[fim]
+    
+    vetor[fim], vetor[nao_troca+1] = vetor[nao_troca+1], vetor[fim]
 
     return nao_troca
 
-lista = [1, 2, 3, 4, 5, 5, 5, 4, 3, 2, 1]
+lista = [21, 14, 18, 45, 62, 70, 14, 20, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10,9, 8, 7, 6, 5, 4, 3, 2, 1,30, 29, 28, 27, 26 ,25 ,24, 23, 22]
 print(quick_sort(lista, 0, len(lista) - 1))
